@@ -1,0 +1,28 @@
+/* reset begin */
+html {
+	-ms-touch-action: none;
+}
+body{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;/* Firefox */
+  -webkit-box-sizing: border-box;/* Safari */
+  font-family:Helvetica;
+  margin: 0;
+  background: #f3f5f7;
+  color: #333;
+}
+a,button,input,textarea{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+ul,ol{padding-left:0;list-style-type:none;margin: 0;}
+h1,h2,h3,h4,h5,h6{margin:0;}
+a{color: #6edd38;text-decoration: none;}
+a:focus{outline: none;}
+label{font-size: 13px;}
+button{border: none;}
+button:focus,
+input:focus{outline: none;}
+input{border: none;font-family: inherit;padding: 0;color: #333;}
+::-webkit-input-placeholder { color: #bbb !important; text-overflow: ellipsis; }
+:-moz-placeholder { color: #bbb !important; text-overflow: ellipsis; }
+::-moz-placeholder { color: #bbb !important; text-overflow: ellipsis; } /* for the future */
+:-ms-input-placeholder { color: #bbb !important; text-overflow: ellipsis; }
+/* reset end */

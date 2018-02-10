@@ -1,0 +1,28 @@
+.hide{display: none;}
+/* 浮动布局 */
+.fix:after{content:'';display: table;clear: both;}
+.fix{*zoom:1;}/*IE6&IE7*/
+.fl{float: left;}
+.fr{float: right;}
+.ovfHiden{overflow: hidden;height: 100%;}
+/* 文字超出隐藏 */
+.inaline{overflow:hidden; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;}
+.inline-x{display: -webkit-box !important;overflow: hidden;text-overflow: ellipsis;word-break: break-all; -webkit-box-orient:vertical;/*-webkit-line-clamp:*/}
+
+.bottom-line{position: relative;}
+.bottom-line:before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: -50%;right: -50%;
+	height: 1px;
+	background: #ddd;
+	transform: scale(0.5,0.5);
+	-webkit-transform: scale(0.5,0.5);
+}
+
+/* input-placeholder */
+::-webkit-input-placeholder { color: #ccc !important; text-overflow: ellipsis; }
+:-moz-placeholder { color: #ccc !important; text-overflow: ellipsis; }
+::-moz-placeholder { color: #ccc !important; text-overflow: ellipsis; } /* for the future */
+:-ms-input-placeholder { color: #ccc !important; text-overflow: ellipsis; }
