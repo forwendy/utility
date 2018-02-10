@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<!-- ios7.0版本以后，safari上已看不到效果 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- 可选default、black、black-translucent -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>index</title>
+		<link rel="stylesheet" type="text/css" href="mo.css">
+		<style>
+			body{
+				background: #eee;
+			}
+		</style>
+		<script>
+var deviceWidth = document.documentElement.clientWidth;
+/*if(deviceWidth > 750) deviceWidth = 750;*/
+document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		</script>
+	</head>
+	<body>
+		<form class="form">
+			<div class="form-group">
+				<label class="control-label">预约站点</label>
+				<input id="station" class="form-control select-control" type="text" placeholder="请选择站点" readonly="readonly">
+				<input name="station" type="hidden">
+			</div>
+			<div class="form-group">
+				<label class="control-label">联系人</label>
+				<input class="form-control" type="text" placeholder="请输入您的姓名">
+			</div>
+			<div class="form-group">
+				<label class="control-label" style="width: 100%;">备注</label>
+				<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="control-label">验证码</label>
+				<input style="width: 3rem;" class="form-control" type="text" placeholder="请输入验证码">
+				<a class="btn btn-outline fr">获取验证码</a>
+			</div>
+		</form>
+	<div class="right-modal hide" id="stationModal">
+		<ul class="select-list">
+			<li data-value="0">光谷金融港</li>
+			<li data-value="1">光谷软件园</li>
+			<li data-value="2">光谷金融港</li>
+			<li data-value="3">光谷软件园</li>
+			<li data-value="4">光谷金融港</li>
+			<li data-value="5">光谷软件园</li>
+			<li data-value="6">光谷金融港</li>
+			<li data-value="7">光谷软件园</li>
+			<li data-value="8">光谷金融港</li>
+			<li data-value="9">光谷软件园</li>
+		</ul>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="mo.js"></script>
+	<script>
+	mo.ovuFlag.init();
+	// mo.loading.init();
+	// mo.loading.dal();  // 结束loading
+
+	$(function(){
+
+		$('#station').click(function(event) {
+      window.history.pushState('forward', null, '#location');
+			$('#stationModal').addClass('show');
+            event.stopPropagation();
+		});
+
+		$('#stationModal').on('click', 'li', function(event){
+      window.history.back();
+			$('#stationModal').removeClass('show');
+			$('#stationModal .select-list li').removeClass('selected');
+			$(this).addClass('selected');
+
+			var val = $(this).attr('data-value');
+			var txt = $(this).text();
+			$('#station').val(txt);
+			$('[name="sattion"]').val(val);
+            event.stopPropagation();
+		});
+
+		$('#stationModal').on('click', function(event){
+      window.history.back();
+			$('#stationModal').removeClass('show');
+            event.stopPropagation();
+		});
+
+		if (window.history && window.history.pushState) {
+
+        $(window).on('popstate', function() {
+            var hashLocation = location.hash;
+            var hashSplit = hashLocation.split("#!/");
+            var hashName = hashSplit[1];
+
+            if (hashName !== '') {
+              var hash = window.location.hash;
+              if (hash === '') {
+                $('#locationShow').removeClass('show');
+              }
+            }
+        });
+    }
+	});
+
+	</script>
+	</body>
+</html>

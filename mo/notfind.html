@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<!--iphone-->
+		<!-- ios7.0版本以后，safari上已看不到效果 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- 可选default、black、black-translucent -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!--iphone-->
+		<title>index</title>
+		<link rel="stylesheet" type="text/css" href="mo.css">
+		<style>
+			.notfind{
+				width: 163px;
+				height: 164px;
+				position: fixed;
+				left: 0;right: 0;
+				bottom: 0;top: 0;
+				margin: auto;
+			}
+		</style>
+		<script>
+var deviceWidth = document.documentElement.clientWidth;
+/*if(deviceWidth > 750) deviceWidth = 750;*/
+document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		</script>
+	</head>
+	<body>
+		<img class="notfind" src="imgs/notfind.png">
+	</body>
+</html>
